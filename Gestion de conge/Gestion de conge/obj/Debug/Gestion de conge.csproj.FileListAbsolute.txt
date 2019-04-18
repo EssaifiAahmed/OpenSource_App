@@ -1,0 +1,26 @@
+C:\Users\Administrateur\Desktop\Files\Projects\Gestion de conge\Gestion de conge\bin\Debug\Gestion de conge.exe.config
+C:\Users\Administrateur\Desktop\Files\Projects\Gestion de conge\Gestion de conge\bin\Debug\Gestion de conge.exe
+C:\Users\Administrateur\Desktop\Files\Projects\Gestion de conge\Gestion de conge\bin\Debug\Gestion de conge.pdb
+C:\Users\Administrateur\Desktop\Files\Projects\Gestion de conge\Gestion de conge\bin\Debug\Bunifu_UI_v1.52.dll
+C:\Users\Administrateur\Desktop\Files\Projects\Gestion de conge\Gestion de conge\bin\Debug\EntityFramework.dll
+C:\Users\Administrateur\Desktop\Files\Projects\Gestion de conge\Gestion de conge\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrateur\Desktop\Files\Projects\Gestion de conge\Gestion de conge\bin\Debug\EntityFramework.xml
+C:\Users\Administrateur\Desktop\Files\Projects\Gestion de conge\Gestion de conge\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrateur\Desktop\Files\Projects\Gestion de conge\Gestion de conge\bin\Debug\fr\EntityFramework.resources.dll
+C:\Users\Administrateur\Desktop\Files\Projects\Gestion de conge\Gestion de conge\obj\Debug\Gestion de conge.csprojAssemblyReference.cache
+C:\Users\Administrateur\Desktop\Files\Projects\Gestion de conge\Gestion de conge\obj\Debug\Gestion_de_conge.Login.resources
+C:\Users\Administrateur\Desktop\Files\Projects\Gestion de conge\Gestion de conge\obj\Debug\Gestion_de_conge.SplashScreen.resources
+C:\Users\Administrateur\Desktop\Files\Projects\Gestion de conge\Gestion de conge\obj\Debug\Gestion_de_conge.Properties.Resources.resources
+C:\Users\Administrateur\Desktop\Files\Projects\Gestion de conge\Gestion de conge\obj\Debug\Gestion de conge.csproj.GenerateResource.cache
+C:\Users\Administrateur\Desktop\Files\Projects\Gestion de conge\Gestion de conge\obj\Debug\Gestion de conge.csproj.CoreCompileInputs.cache
+C:\Users\Administrateur\Desktop\Files\Projects\Gestion de conge\Gestion de conge\obj\Debug\Gestion de conge.csproj.CopyComplete
+C:\Users\Administrateur\Desktop\Files\Projects\Gestion de conge\Gestion de conge\obj\Debug\Gestion de conge.exe
+C:\Users\Administrateur\Desktop\Files\Projects\Gestion de conge\Gestion de conge\obj\Debug\Gestion de conge.pdb
+C:\Users\Administrateur\Desktop\Files\Projects\Gestion de conge\Gestion de conge\obj\Debug\Gestion_de_conge.UserControls.acueil.resources
+C:\Users\Administrateur\Desktop\Files\Projects\Gestion de conge\Gestion de conge\obj\Debug\Gestion_de_conge.Accueil.resources
+C:\Users\Administrateur\Desktop\Files\Projects\Gestion de conge\Gestion de conge\obj\Debug\Gestion_de_conge.UserControls.Personnel.resources
+C:\Users\Administrateur\Desktop\Files\Projects\Gestion de conge\Gestion de conge\obj\Debug\Gestion_de_conge.UserControls.Congé.resources
+C:\Users\Administrateur\Desktop\Files\Projects\Gestion de conge\Gestion de conge\obj\Debug\Gestion_de_conge.UserControls.Historique.resources
+C:\Users\Administrateur\Desktop\Files\Projects\Gestion de conge\Gestion de conge\obj\Debug\Gestion_de_conge.UserControls.Imprimer.resources
+C:\Users\Administrateur\Desktop\Files\Projects\Gestion de conge\Gestion de conge\obj\Debug\Gestion_de_conge.Personnel.update_form.resources
+C:\Users\Administrateur\Desktop\Files\Projects\Gestion de conge\Gestion de conge\obj\Debug\Gestion_de_conge.Personnel.Searching.resources

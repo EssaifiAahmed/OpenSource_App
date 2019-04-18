@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="gestion_de_congeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="arch_conge">
+    <Key>
+      <PropertyRef Name="num_conge" />
+    </Key>
+    <Property Name="num_conge" Type="Int32" Nullable="false" />
+    <Property Name="cin" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="nature" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="date_d" Type="DateTime" Precision="0" />
+    <Property Name="date_f" Type="DateTime" Precision="0" />
+    <Property Name="date_demande" Type="DateTime" Precision="3" />
+    <Property Name="nbr_jour" Type="Int32" />
+    <Property Name="statu" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="arch_personne">
+    <Key>
+      <PropertyRef Name="cin" />
+    </Key>
+    <Property Name="cin" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nom" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="prenom" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="adress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="date_ns" Type="DateTime" Precision="0" />
+    <Property Name="date_rec" Type="DateTime" Precision="0" />
+    <Property Name="nbr_enf" Type="Int32" />
+    <Property Name="grade" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="afectation_act" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="fonction_interier" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="fonction_act" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="situation_fa" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="niveau_ins" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="code_dip" Type="Int32" />
+    <Property Name="diplome" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="num_service" Type="Int32" />
+    <Property Name="tel" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="conge">
+    <Key>
+      <PropertyRef Name="num_conge" />
+    </Key>
+    <Property Name="num_conge" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cin" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="nature" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="date_d" Type="DateTime" Precision="0" />
+    <Property Name="date_f" Type="DateTime" Precision="0" />
+    <Property Name="date_demande" Type="DateTime" Precision="3" />
+    <Property Name="nbr_jour" Type="Int32" />
+    <Property Name="statu" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="personne" Relationship="Self.FK__conge__cin__07F6335A" FromRole="conge" ToRole="personne" />
+    <NavigationProperty Name="personne1" Relationship="Self.FK__conge__cin__2B3F6F97" FromRole="conge" ToRole="personne" />
+  </EntityType>
+  <EntityType Name="logine">
+    <Key>
+      <PropertyRef Name="username" />
+      <PropertyRef Name="passworde" />
+    </Key>
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="passworde" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cin" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="rolee" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="personne" Relationship="Self.FK__logine__cin__03317E3D" FromRole="logine" ToRole="personne" />
+    <NavigationProperty Name="personne1" Relationship="Self.FK__logine__cin__2C3393D0" FromRole="logine" ToRole="personne" />
+  </EntityType>
+  <EntityType Name="messagee">
+    <Key>
+      <PropertyRef Name="message_id" />
+    </Key>
+    <Property Name="message_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cin" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="message_text" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="emeteur" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="recepteur" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="date_msg" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="personne" Relationship="Self.FK__messagee__cin__0CBAE877" FromRole="messagee" ToRole="personne" />
+    <NavigationProperty Name="personne1" Relationship="Self.FK__messagee__cin__2D27B809" FromRole="messagee" ToRole="personne" />
+  </EntityType>
+  <EntityType Name="personne">
+    <Key>
+      <PropertyRef Name="cin" />
+    </Key>
+    <Property Name="cin" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nom" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="prenom" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="adress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="date_ns" Type="DateTime" Precision="0" />
+    <Property Name="date_rec" Type="DateTime" Precision="0" />
+    <Property Name="nbr_enf" Type="Int32" />
+    <Property Name="grade" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="afectation_act" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="fonction_interier" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="fonction_act" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="situation_fa" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="niveau_ins" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="code_dip" Type="Int32" />
+    <Property Name="diplome" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="num_service" Type="Int32" />
+    <Property Name="tel" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="conges" Relationship="Self.FK__conge__cin__07F6335A" FromRole="personne" ToRole="conge" />
+    <NavigationProperty Name="conges1" Relationship="Self.FK__conge__cin__2B3F6F97" FromRole="personne" ToRole="conge" />
+    <NavigationProperty Name="logines" Relationship="Self.FK__logine__cin__03317E3D" FromRole="personne" ToRole="logine" />
+    <NavigationProperty Name="logines1" Relationship="Self.FK__logine__cin__2C3393D0" FromRole="personne" ToRole="logine" />
+    <NavigationProperty Name="messagees" Relationship="Self.FK__messagee__cin__0CBAE877" FromRole="personne" ToRole="messagee" />
+    <NavigationProperty Name="messagees1" Relationship="Self.FK__messagee__cin__2D27B809" FromRole="personne" ToRole="messagee" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__conge__cin__07F6335A">
+    <End Role="personne" Type="Self.personne" Multiplicity="0..1" />
+    <End Role="conge" Type="Self.conge" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personne">
+        <PropertyRef Name="cin" />
+      </Principal>
+      <Dependent Role="conge">
+        <PropertyRef Name="cin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__conge__cin__2B3F6F97">
+    <End Role="personne" Type="Self.personne" Multiplicity="0..1" />
+    <End Role="conge" Type="Self.conge" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personne">
+        <PropertyRef Name="cin" />
+      </Principal>
+      <Dependent Role="conge">
+        <PropertyRef Name="cin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__logine__cin__03317E3D">
+    <End Role="personne" Type="Self.personne" Multiplicity="0..1" />
+    <End Role="logine" Type="Self.logine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personne">
+        <PropertyRef Name="cin" />
+      </Principal>
+      <Dependent Role="logine">
+        <PropertyRef Name="cin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__logine__cin__2C3393D0">
+    <End Role="personne" Type="Self.personne" Multiplicity="0..1" />
+    <End Role="logine" Type="Self.logine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personne">
+        <PropertyRef Name="cin" />
+      </Principal>
+      <Dependent Role="logine">
+        <PropertyRef Name="cin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__messagee__cin__0CBAE877">
+    <End Role="personne" Type="Self.personne" Multiplicity="0..1" />
+    <End Role="messagee" Type="Self.messagee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personne">
+        <PropertyRef Name="cin" />
+      </Principal>
+      <Dependent Role="messagee">
+        <PropertyRef Name="cin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__messagee__cin__2D27B809">
+    <End Role="personne" Type="Self.personne" Multiplicity="0..1" />
+    <End Role="messagee" Type="Self.messagee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personne">
+        <PropertyRef Name="cin" />
+      </Principal>
+      <Dependent Role="messagee">
+        <PropertyRef Name="cin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="gestion_de_congeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="arch_conge" EntityType="Self.arch_conge" />
+    <EntitySet Name="arch_personne" EntityType="Self.arch_personne" />
+    <EntitySet Name="conges" EntityType="Self.conge" />
+    <EntitySet Name="logines" EntityType="Self.logine" />
+    <EntitySet Name="messagees" EntityType="Self.messagee" />
+    <EntitySet Name="personnes" EntityType="Self.personne" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK__conge__cin__07F6335A" Association="Self.FK__conge__cin__07F6335A">
+      <End Role="personne" EntitySet="personnes" />
+      <End Role="conge" EntitySet="conges" />
+    </AssociationSet>
+    <AssociationSet Name="FK__conge__cin__2B3F6F97" Association="Self.FK__conge__cin__2B3F6F97">
+      <End Role="personne" EntitySet="personnes" />
+      <End Role="conge" EntitySet="conges" />
+    </AssociationSet>
+    <AssociationSet Name="FK__logine__cin__03317E3D" Association="Self.FK__logine__cin__03317E3D">
+      <End Role="personne" EntitySet="personnes" />
+      <End Role="logine" EntitySet="logines" />
+    </AssociationSet>
+    <AssociationSet Name="FK__logine__cin__2C3393D0" Association="Self.FK__logine__cin__2C3393D0">
+      <End Role="personne" EntitySet="personnes" />
+      <End Role="logine" EntitySet="logines" />
+    </AssociationSet>
+    <AssociationSet Name="FK__messagee__cin__0CBAE877" Association="Self.FK__messagee__cin__0CBAE877">
+      <End Role="personne" EntitySet="personnes" />
+      <End Role="messagee" EntitySet="messagees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__messagee__cin__2D27B809" Association="Self.FK__messagee__cin__2D27B809">
+      <End Role="personne" EntitySet="personnes" />
+      <End Role="messagee" EntitySet="messagees" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

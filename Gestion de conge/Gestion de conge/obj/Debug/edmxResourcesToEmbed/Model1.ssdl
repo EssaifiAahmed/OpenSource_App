@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="gestion_de_congeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="arch_conge">
+    <Key>
+      <PropertyRef Name="num_conge" />
+    </Key>
+    <Property Name="num_conge" Type="int" Nullable="false" />
+    <Property Name="cin" Type="nvarchar" MaxLength="10" />
+    <Property Name="nature" Type="nvarchar" MaxLength="500" />
+    <Property Name="date_d" Type="date" />
+    <Property Name="date_f" Type="date" />
+    <Property Name="date_demande" Type="datetime" />
+    <Property Name="nbr_jour" Type="int" />
+    <Property Name="statu" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="arch_personne">
+    <Key>
+      <PropertyRef Name="cin" />
+    </Key>
+    <Property Name="cin" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="nom" Type="nvarchar" MaxLength="25" />
+    <Property Name="prenom" Type="nvarchar" MaxLength="25" />
+    <Property Name="adress" Type="nvarchar" MaxLength="50" />
+    <Property Name="date_ns" Type="date" />
+    <Property Name="date_rec" Type="date" />
+    <Property Name="nbr_enf" Type="int" />
+    <Property Name="grade" Type="nvarchar" MaxLength="25" />
+    <Property Name="afectation_act" Type="nvarchar" MaxLength="25" />
+    <Property Name="fonction_interier" Type="nvarchar" MaxLength="25" />
+    <Property Name="fonction_act" Type="nvarchar" MaxLength="25" />
+    <Property Name="situation_fa" Type="nvarchar" MaxLength="10" />
+    <Property Name="niveau_ins" Type="nvarchar" MaxLength="25" />
+    <Property Name="code_dip" Type="int" />
+    <Property Name="diplome" Type="nvarchar" MaxLength="25" />
+    <Property Name="num_service" Type="int" />
+    <Property Name="tel" Type="nvarchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="conge">
+    <Key>
+      <PropertyRef Name="num_conge" />
+    </Key>
+    <Property Name="num_conge" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cin" Type="nvarchar" MaxLength="10" />
+    <Property Name="nature" Type="nvarchar" MaxLength="500" />
+    <Property Name="date_d" Type="date" />
+    <Property Name="date_f" Type="date" />
+    <Property Name="date_demande" Type="datetime" />
+    <Property Name="nbr_jour" Type="int" />
+    <Property Name="statu" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="logine">
+    <Key>
+      <PropertyRef Name="username" />
+      <PropertyRef Name="passworde" />
+    </Key>
+    <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="passworde" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="cin" Type="nvarchar" MaxLength="10" />
+    <Property Name="email" Type="nvarchar" MaxLength="60" />
+    <Property Name="rolee" Type="nvarchar" MaxLength="16" />
+  </EntityType>
+  <EntityType Name="messagee">
+    <Key>
+      <PropertyRef Name="message_id" />
+    </Key>
+    <Property Name="message_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cin" Type="nvarchar" MaxLength="10" />
+    <Property Name="message_text" Type="nvarchar" MaxLength="1000" />
+    <Property Name="emeteur" Type="nvarchar" MaxLength="25" />
+    <Property Name="recepteur" Type="nvarchar" MaxLength="25" />
+    <Property Name="date_msg" Type="date" />
+  </EntityType>
+  <EntityType Name="personne">
+    <Key>
+      <PropertyRef Name="cin" />
+    </Key>
+    <Property Name="cin" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="nom" Type="nvarchar" MaxLength="25" />
+    <Property Name="prenom" Type="nvarchar" MaxLength="25" />
+    <Property Name="adress" Type="nvarchar" MaxLength="50" />
+    <Property Name="date_ns" Type="date" />
+    <Property Name="date_rec" Type="date" />
+    <Property Name="nbr_enf" Type="int" />
+    <Property Name="grade" Type="nvarchar" MaxLength="25" />
+    <Property Name="afectation_act" Type="nvarchar" MaxLength="25" />
+    <Property Name="fonction_interier" Type="nvarchar" MaxLength="25" />
+    <Property Name="fonction_act" Type="nvarchar" MaxLength="25" />
+    <Property Name="situation_fa" Type="nvarchar" MaxLength="10" />
+    <Property Name="niveau_ins" Type="nvarchar" MaxLength="25" />
+    <Property Name="code_dip" Type="int" />
+    <Property Name="diplome" Type="nvarchar" MaxLength="25" />
+    <Property Name="num_service" Type="int" />
+    <Property Name="tel" Type="nvarchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK__conge__cin__07F6335A">
+    <End Role="personne" Type="Self.personne" Multiplicity="0..1" />
+    <End Role="conge" Type="Self.conge" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personne">
+        <PropertyRef Name="cin" />
+      </Principal>
+      <Dependent Role="conge">
+        <PropertyRef Name="cin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__conge__cin__2B3F6F97">
+    <End Role="personne" Type="Self.personne" Multiplicity="0..1" />
+    <End Role="conge" Type="Self.conge" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personne">
+        <PropertyRef Name="cin" />
+      </Principal>
+      <Dependent Role="conge">
+        <PropertyRef Name="cin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__logine__cin__03317E3D">
+    <End Role="personne" Type="Self.personne" Multiplicity="0..1" />
+    <End Role="logine" Type="Self.logine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personne">
+        <PropertyRef Name="cin" />
+      </Principal>
+      <Dependent Role="logine">
+        <PropertyRef Name="cin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__logine__cin__2C3393D0">
+    <End Role="personne" Type="Self.personne" Multiplicity="0..1" />
+    <End Role="logine" Type="Self.logine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personne">
+        <PropertyRef Name="cin" />
+      </Principal>
+      <Dependent Role="logine">
+        <PropertyRef Name="cin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__messagee__cin__0CBAE877">
+    <End Role="personne" Type="Self.personne" Multiplicity="0..1" />
+    <End Role="messagee" Type="Self.messagee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personne">
+        <PropertyRef Name="cin" />
+      </Principal>
+      <Dependent Role="messagee">
+        <PropertyRef Name="cin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__messagee__cin__2D27B809">
+    <End Role="personne" Type="Self.personne" Multiplicity="0..1" />
+    <End Role="messagee" Type="Self.messagee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personne">
+        <PropertyRef Name="cin" />
+      </Principal>
+      <Dependent Role="messagee">
+        <PropertyRef Name="cin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="gestion_de_congeModelStoreContainer">
+    <EntitySet Name="arch_conge" EntityType="Self.arch_conge" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="arch_personne" EntityType="Self.arch_personne" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="conge" EntityType="Self.conge" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="logine" EntityType="Self.logine" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="messagee" EntityType="Self.messagee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="personne" EntityType="Self.personne" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__conge__cin__07F6335A" Association="Self.FK__conge__cin__07F6335A">
+      <End Role="personne" EntitySet="personne" />
+      <End Role="conge" EntitySet="conge" />
+    </AssociationSet>
+    <AssociationSet Name="FK__conge__cin__2B3F6F97" Association="Self.FK__conge__cin__2B3F6F97">
+      <End Role="personne" EntitySet="personne" />
+      <End Role="conge" EntitySet="conge" />
+    </AssociationSet>
+    <AssociationSet Name="FK__logine__cin__03317E3D" Association="Self.FK__logine__cin__03317E3D">
+      <End Role="personne" EntitySet="personne" />
+      <End Role="logine" EntitySet="logine" />
+    </AssociationSet>
+    <AssociationSet Name="FK__logine__cin__2C3393D0" Association="Self.FK__logine__cin__2C3393D0">
+      <End Role="personne" EntitySet="personne" />
+      <End Role="logine" EntitySet="logine" />
+    </AssociationSet>
+    <AssociationSet Name="FK__messagee__cin__0CBAE877" Association="Self.FK__messagee__cin__0CBAE877">
+      <End Role="personne" EntitySet="personne" />
+      <End Role="messagee" EntitySet="messagee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__messagee__cin__2D27B809" Association="Self.FK__messagee__cin__2D27B809">
+      <End Role="personne" EntitySet="personne" />
+      <End Role="messagee" EntitySet="messagee" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
